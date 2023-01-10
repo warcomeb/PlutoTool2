@@ -1,4 +1,6 @@
-﻿namespace PlutoTool.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace PlutoTool.Models
 {
     public class Payee
     {
@@ -32,11 +34,51 @@
 
         public enum PayeeTypes
         {
-            BANK_ACCOUNT = 0,
-            WALLET,
-            CREDIT_CARD,
-            VIRTUAL_WALLET,
-            SAVING_ACCOUNT,
+            NOT_DEFINED = 0,
+            PERSON,
+            BANK,
+            BAR,
+            SHOP,
+            RESTURANT,
+            HOSPITAL,
+            DOCTOR,
+            TRANSPORT,
+            UTILITIES,
+            MECHANIC,
+            CAMPING_HOTEL,
+            INTERNET,
+            INDUSTRY,
+            ITC_COMPANY,
+            INSURANCE,
+            PHARMACY,
+            FIRM,
+            GOVERNAMENT_AGENCY,
+            SPORT_SOCIETY,
+            SCHOOL
         }
+
+        private string[] PayeeTypesName = new string[] {
+            "Non Definito",
+            "Persona",
+            "Banca",
+            "Bar",
+            "Negozio",
+            "Ristorante",
+            "Ospedale",
+            "Dottore",
+            "Trasporto",
+            "Ferramenta",
+            "Meccanico",
+            "Camping/Hotel",
+            "Internet",
+            "Industria",
+            "Telefonia",
+            "Assicurazione",
+            "Farmacia",
+            "Consulenza",
+            "Agenzia Governativa",
+            "Società Sportiva",
+            "Scuola"
+        };
     }
 }

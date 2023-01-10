@@ -1,5 +1,4 @@
-﻿using static PlutoTool.Models.Vehicle;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PlutoTool.Models
 {
@@ -22,11 +21,12 @@ namespace PlutoTool.Models
         }
         [NotMapped]
         public AccountTypes AccountType { get; set; }
-        public int OwnerUserId { get; set; }
+        public int UserId { get; set; }
         public bool Active { get; set; }
         public string? Note { get; set; }
+        public User? User { get; set; }
 
-        public enum AccountTypes
+        public enum AccountTypes: int
         {
             BANK_ACCOUNT = 0,
             WALLET,
@@ -35,12 +35,14 @@ namespace PlutoTool.Models
             SAVING_ACCOUNT,
         }
 
-        private string[] AccoutTypesName = new string[] { 
+        public static string[] AccountTypesName = new string[] { 
             "Conto Bancario", 
             "Portafoglio",
             "Carta di Credito",
             "Portafoglio Virtuale",
             "Libretto di Risparmio"
         };
+
+        public string AccountTypeFormatted => (string)AccountTypesName[(int)AccountType];
     }
 }
