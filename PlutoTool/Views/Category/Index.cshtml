@@ -1,0 +1,56 @@
+﻿@model IEnumerable<PlutoTool.ViewModels.CategoryViewModel>
+
+@{
+    ViewData["Title"] = "Categorie";
+}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Categorie</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+            <a class="btn btn-sm btn-outline-primary" asp-action="Create" role="button"><i class="fa-regular fa-square-plus"></i>&nbsp;Aggiungi</a>
+        </div>
+    </div>
+</div>
+
+@if (Model.Count() > 0)
+{
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Categoria
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    
+                </td>
+                <td>
+                   
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+} 
+else 
+{
+    <div class="alert alert-warning" role="alert">
+        <h4 class="alert-heading">Nessun Elemento</h4>
+        <p>Non è stato trovato nessun elemento!</p>
+    </div>
+}
